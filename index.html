@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Putra Interior — Jasa Plafon & Interior Jabodetabek</title>
+  <meta name="description" content="Putra Interior — jasa pemasangan plafon gypsum, PVC, partisi, dan desain interior profesional area Jabodetabek. Setiap detail penuh perhitungan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --c-bg:       #0f0f0f;
+      --c-surface:  #171717;
+      --c-card:     #1e1e1e;
+      --c-border:   rgba(255,255,255,0.07);
+      --c-gold:     #c9a84c;
+      --c-gold-dim: rgba(201,168,76,0.15);
+      --c-text:     #e8e4dc;
+      --c-muted:    #7a7672;
+      --c-white:    #ffffff;
+      --f-display:  'Cormorant Garamond', Georgia, serif;
+      --f-body:     'DM Sans', system-ui, sans-serif;
+      --ease:       cubic-bezier(0.25,0.46,0.45,0.94);
+      --r:          6px;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--c-bg);
+      color: var(--c-text);
+      font-family: var(--f-body);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, video { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── UTILS ── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .gold { color: var(--c-gold); }
+    .section-label {
+      font-family: var(--f-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--f-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--c-white);
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      color: var(--c-muted);
+      font-size: 15px;
+      max-width: 540px;
+    }
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--c-gold);
+      margin: 24px 0;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(15,15,15,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--c-border);
+      transition: background 0.3s var(--ease);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-pi {
+      width: 38px; height: 38px;
+      border: 1px solid var(--c-gold);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--c-gold);
+      letter-spacing: -1px;
+    }
+    .logo-text {
+      font-family: var(--f-display);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--c-white);
+      letter-spacing: 0.04em;
+    }
+    .logo-text span {
+      font-size: 11px;
+      font-family: var(--f-body);
+      color: var(--c-muted);
+      display: block;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--c-muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--c-white); }
+    .nav-cta {
+      background: var(--c-gold) !important;
+      color: #0f0f0f !important;
+      padding: 9px 20px;
+      border-radius: var(--r);
+      font-weight: 500;
+      font-size: 13px !important;
+      letter-spacing: 0.04em !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.88 !important; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--c-text);
+      transition: transform 0.3s;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(var(--c-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--c-border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 60% 50%, black 0%, transparent 100%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .hero-tagline {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-tagline::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--c-gold);
+    }
+    .hero-title {
+      font-family: var(--f-display);
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--c-white);
+      margin-bottom: 28px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--c-gold);
+    }
+    .hero-desc {
+      color: var(--c-muted);
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 40px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--c-gold);
+      color: #0f0f0f;
+      padding: 14px 28px;
+      border-radius: var(--r);
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1px solid var(--c-border);
+      color: var(--c-text);
+      padding: 14px 28px;
+      border-radius: var(--r);
+      font-size: 14px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--c-gold); color: var(--c-gold); }
+    .hero-visual {
+      position: relative;
+    }
+    .hero-img-wrap {
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--c-card);
+      border: 1px solid var(--c-border);
+      position: relative;
+    }
+    .hero-img-wrap img, .hero-img-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    /* Placeholder hero */
+    .hero-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--c-muted);
+    }
+    .hero-placeholder .pi-big {
+      font-family: var(--f-display);
+      font-size: 100px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+    }
+    .hero-placeholder p {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--c-gold);
+      color: #0f0f0f;
+      padding: 16px 20px;
+      border-radius: var(--r);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .hero-badge strong {
+      display: block;
+      font-size: 22px;
+      font-family: var(--f-display);
+      font-weight: 600;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--c-border);
+    }
+    .stat-num {
+      font-family: var(--f-display);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--c-white);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--c-muted);
+      margin-top: 4px;
+    }
+
+    /* ── SECTION SPACING ── */
+    section { padding: 100px 0; }
+    section:nth-child(even) { background: var(--c-surface); }
+
+    /* ── TENTANG ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-img {
+      aspect-ratio: 3/4;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--c-card);
+      border: 1px solid var(--c-border);
+      position: relative;
+    }
+    .about-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .about-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-size: 80px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.1);
+    }
+    .about-accent {
+      position: absolute;
+      top: 24px; right: -16px;
+      width: 120px; height: 120px;
+      border: 1px solid var(--c-gold);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--c-gold);
+      background: var(--c-bg);
+    }
+    .about-points {
+      list-style: none;
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .about-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--c-muted);
+      line-height: 1.6;
+    }
+    .about-points li::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--c-gold);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .keunggulan-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--c-border);
+      border: 1px solid var(--c-border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 60px;
+    }
+    .keunggulan-item {
+      background: var(--c-card);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .keunggulan-num {
+      font-family: var(--f-display);
+      font-size: 38px;
+      font-weight: 400;
+      color: var(--c-gold);
+      line-height: 1;
+    }
+    .keunggulan-label {
+      font-size: 12px;
+      color: var(--c-muted);
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── LAYANAN ── */
+    .layanan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+      gap: 32px;
+    }
+    .layanan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--c-border);
+      border: 1px solid var(--c-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .layanan-card {
+      background: var(--c-bg);
+      padding: 36px 32px;
+      transition: background 0.3s var(--ease);
+      position: relative;
+    }
+    .layanan-card:hover { background: var(--c-card); }
+    .layanan-card:hover .layanan-icon { color: var(--c-gold); }
+    .layanan-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+      transition: color 0.3s;
+      color: var(--c-muted);
+    }
+    .layanan-name {
+      font-family: var(--f-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--c-white);
+      margin-bottom: 10px;
+    }
+    .layanan-desc {
+      font-size: 13px;
+      color: var(--c-muted);
+      line-height: 1.7;
+    }
+    /* Banner desain mandiri */
+    .desain-mandiri {
+      margin-top: 24px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      padding: 36px 40px;
+      background: var(--c-gold-dim);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+    .desain-mandiri-title {
+      font-family: var(--f-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--c-white);
+      margin-bottom: 8px;
+    }
+    .desain-mandiri-sub {
+      font-size: 13px;
+      color: var(--c-muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .desain-mandiri-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .desain-mandiri-tags span {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--c-gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* ── GALERI ── */
+    .galeri-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 260px 260px;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .galeri-item {
+      background: var(--c-card);
+      border-radius: var(--r);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--c-border);
+    }
+    .galeri-item img, .galeri-item video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+    .galeri-item:hover img, .galeri-item:hover video { transform: scale(1.04); }
+    .galeri-item:nth-child(1) { grid-column: span 5; }
+    .galeri-item:nth-child(2) { grid-column: span 4; }
+    .galeri-item:nth-child(3) { grid-column: span 3; }
+    .galeri-item:nth-child(4) { grid-column: span 4; }
+    .galeri-item:nth-child(5) { grid-column: span 5; }
+    .galeri-item:nth-child(6) { grid-column: span 3; }
+    .galeri-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: rgba(201,168,76,0.25);
+    }
+    .galeri-placeholder svg { width: 28px; height: 28px; }
+    .galeri-placeholder span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .galeri-tag {
+      position: absolute;
+      top: 12px; left: 12px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    /* Video row */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .video-item {
+      aspect-ratio: 9/16;
+      background: var(--c-card);
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--c-border);
+      position: relative;
+    }
+    .video-item video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .video-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(201,168,76,0.3);
+    }
+    .play-icon {
+      width: 48px; height: 48px;
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .play-icon svg { width: 18px; height: 18px; margin-left: 3px; }
+    .video-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+    }
+
+    /* ── TESTIMONI ── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testi-card {
+      background: var(--c-card);
+      border: 1px solid var(--c-border);
+      border-radius: 8px;
+      padding: 32px;
+      transition: border-color 0.3s;
+    }
+    .testi-card:hover { border-color: rgba(201,168,76,0.3); }
+    .testi-stars {
+      color: var(--c-gold);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .testi-text {
+      font-size: 14px;
+      color: var(--c-muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testi-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--c-white);
+    }
+    .testi-loc {
+      font-size: 12px;
+      color: var(--c-muted);
+      margin-top: 2px;
+    }
+
+    /* ── KONTAK ── */
+    #kontak { background: var(--c-bg); }
+    .kontak-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .kontak-info p {
+      font-size: 14px;
+      color: var(--c-muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    .area-tag {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--c-text);
+      border: 1px solid var(--c-border);
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+    .sosmed-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .sosmed-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: var(--r);
+      border: 1px solid var(--c-border);
+      background: var(--c-card);
+      font-size: 13px;
+      color: var(--c-text);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .sosmed-btn:hover {
+      border-color: var(--c-gold);
+      background: var(--c-gold-dim);
+      transform: translateY(-2px);
+    }
+    .sosmed-btn.primary {
+      background: var(--c-gold);
+      border-color: var(--c-gold);
+      color: #0f0f0f;
+      font-weight: 500;
+      grid-column: span 2;
+    }
+    .sosmed-btn.primary:hover { opacity: 0.9; background: var(--c-gold); }
+    .sosmed-icon {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .kontak-form-side {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 8px;
+      padding: 40px;
+    }
+    .form-title {
+      font-family: var(--f-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--c-white);
+      margin-bottom: 8px;
+    }
+    .form-sub {
+      font-size: 13px;
+      color: var(--c-muted);
+      margin-bottom: 28px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-muted);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r);
+      padding: 12px 16px;
+      color: var(--c-text);
+      font-family: var(--f-body);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--c-gold); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      width: 100%;
+      background: var(--c-gold);
+      color: #0f0f0f;
+      border: none;
+      padding: 14px;
+      border-radius: var(--r);
+      font-family: var(--f-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { opacity: 0.88; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080808;
+      border-top: 1px solid var(--c-border);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--c-muted);
+    }
+    .footer-copy a { color: var(--c-gold); }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 12px;
+      color: var(--c-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--c-white); }
+
+    /* ── MOBILE NAV ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(15,15,15,0.97);
+      padding: 80px 24px 40px;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--f-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+      padding-bottom: 20px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-img { aspect-ratio: 4/3; }
+      .keunggulan-row { grid-template-columns: repeat(2, 1fr); }
+      .layanan-grid { grid-template-columns: repeat(2, 1fr); }
+      .desain-mandiri { grid-template-columns: 1fr; }
+      .galeri-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .galeri-item { grid-column: span 1 !important; aspect-ratio: 4/3; }
+      .video-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .kontak-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 560px) {
+      section { padding: 64px 0; }
+      .layanan-grid { grid-template-columns: 1fr; }
+      .keunggulan-row { grid-template-columns: repeat(2, 1fr); }
+      .video-grid { grid-template-columns: 1fr; }
+      .sosmed-grid { grid-template-columns: 1fr; }
+      .sosmed-btn.primary { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-pi">π</div>
+        <div class="logo-text">
+          Putra Interior
+          <span>Presisi dalam setiap detail</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak" class="nav-cta">Konsultasi Gratis</a></li>
+      </ul>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#tentang" onclick="toggleMenu()">Tentang Kami</a>
+  <a href="#layanan" onclick="toggleMenu()">Layanan</a>
+  <a href="#galeri" onclick="toggleMenu()">Galeri</a>
+  <a href="#kontak" onclick="toggleMenu()">Kontak</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-tagline">Jabodetabek · Est. 2016</p>
+        <h1 class="hero-title">
+          Setiap detail<br><em>penuh perhitungan</em>
+        </h1>
+        <p class="hero-desc">
+          Putra Interior menghadirkan solusi plafon dan desain interior
+          yang terukur — dari konsep hingga pemasangan, kami pastikan
+          setiap proyek selesai tepat waktu, tepat anggaran, hasil terbaik.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20Putra%20Interior%2C%20saya%20ingin%20konsultasi%20gratis" class="btn-primary" target="_blank">
+            <!-- WhatsApp icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Konsultasi via WhatsApp
+          </a>
+          <a href="#galeri" class="btn-ghost">Lihat Proyek Kami</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Tahun pengalaman</div>
+          </div>
+          <div>
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Proyek selesai</div>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Bergaransi</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <!--
+            GANTI DENGAN FOTO HERO TERBAIK ANDA:
+            <img src="foto-hero.jpg" alt="Proyek plafon Putra Interior" />
+            ATAU VIDEO:
+            <video src="video1.mp4" autoplay muted loop playsinline></video>
+          -->
+          <div class="hero-placeholder">
+            <div class="pi-big">π</div>
+            <p>Foto / Video Hero Utama</p>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <strong>π</strong>
+          Presisi<br>Terukur
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TENTANG KAMI ══ -->
+<section id="tentang">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <!--
+          GANTI DENGAN FOTO TIM / SUASANA KERJA:
+          <img src="foto-tentang.jpg" alt="Tim Putra Interior" />
+        -->
+        <div class="about-placeholder">π</div>
+        <div class="about-accent">π</div>
+      </div>
+      <div>
+        <span class="section-label">Tentang Kami</span>
+        <h2 class="section-title">Dibangun di atas<br>prinsip presisi</h2>
+        <div class="divider"></div>
+        <p class="section-sub">
+          Nama <strong style="color:var(--c-white)">Putra Interior</strong> lahir dari filosofi sederhana:
+          seperti konstanta π dalam matematika, setiap pekerjaan kami
+          berdiri di atas perhitungan yang matang — tidak ada yang asal,
+          tidak ada yang bisa dilewatkan.
+        </p>
+        <ul class="about-points">
+          <li>Lebih dari 8 tahun melayani hunian dan proyek komersial di area Jabodetabek dengan standar kerapian dan ketepatan waktu yang konsisten.</li>
+          <li>Tim pemasang terlatih dan berpengalaman — kami tidak menggunakan tenaga sembarangan di proyek Anda.</li>
+          <li>Setiap penawaran harga transparan: estimasi detail, tanpa biaya tersembunyi.</li>
+          <li>Garansi hasil kerja pada setiap proyek yang kami tangani.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="keunggulan-row">
+      <div class="keunggulan-item">
+        <div class="keunggulan-num">8+</div>
+        <div class="keunggulan-label">Tahun Pengalaman</div>
+      </div>
+      <div class="keunggulan-item">
+        <div class="keunggulan-num">500+</div>
+        <div class="keunggulan-label">Proyek Selesai</div>
+      </div>
+      <div class="keunggulan-item">
+        <div class="keunggulan-num">3 Hari</div>
+        <div class="keunggulan-label">Respons Survey</div>
+      </div>
+      <div class="keunggulan-item">
+        <div class="keunggulan-num">100%</div>
+        <div class="keunggulan-label">Bergaransi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LAYANAN ══ -->
+<section id="layanan">
+  <div class="container">
+    <div class="layanan-header">
+      <div>
+        <span class="section-label">Layanan</span>
+        <h2 class="section-title">Apa yang kami<br>kerjakan</h2>
+      </div>
+      <p class="section-sub" style="text-align:right">
+        Setiap layanan dikerjakan oleh tim spesialis yang tepat,
+        bukan tenaga serbabisa.
+      </p>
+    </div>
+    <div class="layanan-grid">
+      <!-- Plafon Gypsum -->
+      <div class="layanan-card">
+        <div class="layanan-icon">◻</div>
+        <div class="layanan-name">Plafon Gypsum</div>
+        <p class="layanan-desc">Pemasangan plafon gypsum untuk hunian dan komersial — rata, drop ceiling, motif, hingga list profil. Material ringan, finishing rapi.</p>
+      </div>
+      <!-- Plafon PVC -->
+      <div class="layanan-card">
+        <div class="layanan-icon">⬜</div>
+        <div class="layanan-name">Plafon PVC</div>
+        <p class="layanan-desc">Solusi anti lembab untuk dapur, kamar mandi, dan area basah. Tahan air, mudah dibersihkan, dan tersedia berbagai motif modern.</p>
+      </div>
+      <!-- Partisi -->
+      <div class="layanan-card">
+        <div class="layanan-icon">▭</div>
+        <div class="layanan-name">Partisi Ruangan</div>
+        <p class="layanan-desc">Pemisah ruangan dengan material gypsum atau kaca — ideal untuk kantor, klinik, ruko, dan hunian yang membutuhkan fleksibilitas tata ruang.</p>
+      </div>
+      <!-- Instalasi -->
+      <div class="layanan-card">
+        <div class="layanan-icon">✦</div>
+        <div class="layanan-name">Pemasangan Instalasi</div>
+        <p class="layanan-desc">Downlight, list profil, cornice, dan elemen dekoratif lainnya. Pemasangan presisi, kabel tersembunyi rapi, cahaya merata.</p>
+      </div>
+      <!-- Desain Interior -->
+      <div class="layanan-card">
+        <div class="layanan-icon">◈</div>
+        <div class="layanan-name">Desain Interior</div>
+        <p class="layanan-desc">Konsep desain ruangan lengkap: mulai dari tata letak, pemilihan material, pencahayaan, hingga rendering visual sebelum eksekusi.</p>
+      </div>
+      <!-- CTA Card -->
+      <div class="layanan-card" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:var(--c-gold-dim);border-left:2px solid var(--c-gold)">
+        <div class="layanan-name" style="font-size:16px">Kebutuhan lain?</div>
+        <p class="layanan-desc" style="margin-bottom:20px">Kami terbuka untuk diskusi proyek di luar daftar di atas.</p>
+        <a href="#kontak" class="btn-ghost" style="font-size:13px;padding:10px 20px">Hubungi Kami →</a>
+      </div>
+    </div>
+
+    <!-- Desain Mandiri Banner -->
+    <div class="desain-mandiri">
+      <div>
+        <div class="desain-mandiri-title">Butuh desain saja, tanpa pemasangan?</div>
+        <p class="desain-mandiri-sub">
+          Anda sudah memiliki kontraktor atau tim pelaksana sendiri,
+          namun membutuhkan konsep dan dokumen desain yang matang?
+          Putra Interior menyediakan <strong style="color:var(--c-white)">jasa desain interior mandiri</strong> —
+          kami hadir sebagai mitra konsep, Anda menentukan siapa yang mengeksekusi.
+        </p>
+        <div class="desain-mandiri-tags">
+          <span>Konsep Visual</span>
+          <span>Denah Tata Ruang</span>
+          <span>Moodboard Material</span>
+          <span>Dokumen Siap Eksekusi</span>
+          <span>Konsultasi Fleksibel</span>
+        </div>
+      </div>
+      <div style="flex-shrink:0">
+        <a href="#kontak" class="btn-primary">Diskusikan Proyek →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALERI ══ -->
+<section id="galeri">
+  <div class="container">
+    <span class="section-label">Galeri Proyek</span>
+    <h2 class="section-title" style="margin-bottom:8px">Hasil yang berbicara<br>sendiri</h2>
+    <p class="section-sub" style="margin-bottom:48px">Dokumentasi proyek yang telah kami selesaikan di berbagai area Jabodetabek.</p>
+
+    <!-- 5 Foto -->
+    <div class="galeri-grid">
+      <div class="galeri-item">
+        <!--
+          GANTI: <img src="foto1.jpg" alt="Plafon gypsum living room" />
+        -->
+        <div class="galeri-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Foto 1</span>
+        </div>
+        <span class="galeri-tag">Plafon Gypsum</span>
+      </div>
+      <div class="galeri-item">
+        <div class="galeri-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Foto 2</span>
+        </div>
+        <span class="galeri-tag">Drop Ceiling</span>
+      </div>
+      <div class="galeri-item">
+        <div class="galeri-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Foto 3</span>
+        </div>
+        <span class="galeri-tag">Partisi</span>
+      </div>
+      <div class="galeri-item">
+        <div class="galeri-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Foto 4</span>
+        </div>
+        <span class="galeri-tag">Plafon PVC</span>
+      </div>
+      <div class="galeri-item">
+        <div class="galeri-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Foto 5</span>
+        </div>
+        <span class="galeri-tag">Desain Interior</span>
+      </div>
+      <div class="galeri-item" style="background:var(--c-gold-dim);border-color:rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+        <div style="font-family:var(--f-display);font-size:32px;color:var(--c-gold);font-weight:300">π</div>
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-gold)">Putra Interior</div>
+      </div>
+    </div>
+
+    <!-- 3 Video -->
+    <p style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-muted);margin:32px 0 16px">Video Proyek</p>
+    <div class="video-grid">
+      <div class="video-item">
+        <!--
+          GANTI: <video src="video1.mp4" autoplay muted loop playsinline></video>
+        -->
+        <div class="video-placeholder">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-label">Video 1</span>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-placeholder">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-label">Video 2</span>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-placeholder">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-label">Video 3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONI ══ -->
+<section id="testimoni">
+  <div class="container">
+    <span class="section-label">Testimoni</span>
+    <h2 class="section-title" style="margin-bottom:48px">Kata mereka yang<br>sudah mempercayai kami</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Pengerjaan cepat dan rapi. Plafon gypsum di ruang tamu saya selesai dalam 2 hari, hasilnya melebihi ekspektasi. Tim datang tepat waktu dan meninggalkan ruangan dalam kondisi bersih."</p>
+        <div class="testi-name">Budi Santoso</div>
+        <div class="testi-loc">Depok, Jawa Barat</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Saya pakai jasa desain interiornya dulu sebelum renovasi. Hasilnya bagus, dokumennya lengkap dan langsung bisa saya serahkan ke kontraktor. Sangat profesional dan komunikatif."</p>
+        <div class="testi-name">Rini Kusumawati</div>
+        <div class="testi-loc">Bekasi Selatan</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Sudah dua kali pakai Putra Interior untuk proyek kantor kami. Partisi gypsum dan drop ceiling di dua lantai selesai sesuai jadwal. Harga transparan, tidak ada biaya mendadak."</p>
+        <div class="testi-name">Hendra Wijaya</div>
+        <div class="testi-loc">Jakarta Selatan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KONTAK ══ -->
+<section id="kontak">
+  <div class="container">
+    <div class="kontak-wrap">
+      <div class="kontak-info">
+        <span class="section-label">Kontak</span>
+        <h2 class="section-title">Mari diskusikan<br>proyek Anda</h2>
+        <div class="divider"></div>
+        <p>Kami melayani konsultasi gratis tanpa komitmen. Ceritakan kebutuhan Anda dan tim kami akan memberikan estimasi awal dalam waktu 1x24 jam.</p>
+
+        <p style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-muted);margin-bottom:12px">Area Layanan</p>
+        <div class="area-tags">
+          <span class="area-tag">Jakarta</span>
+          <span class="area-tag">Bogor</span>
+          <span class="area-tag">Depok</span>
+          <span class="area-tag">Tangerang</span>
+          <span class="area-tag">Bekasi</span>
+          <span class="area-tag">Jabodetabek</span>
+        </div>
+
+        <p style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px">Temukan Kami Di</p>
+        <div class="sosmed-grid">
+          <!-- WhatsApp — PRIMARY -->
+          <a href="https://wa.me/628XXXXXXXXXX" target="_blank" class="sosmed-btn primary">
+            <div class="sosmed-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            Chat via WhatsApp
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/DUMMY_HANDLE" target="_blank" class="sosmed-btn">
+            <div class="sosmed-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:8px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            Instagram
+          </a>
+          <!-- TikTok -->
+          <a href="https://tiktok.com/@DUMMY_HANDLE" target="_blank" class="sosmed-btn">
+            <div class="sosmed-icon" style="background:#010101;border-radius:8px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+            </div>
+            TikTok
+          </a>
+          <!-- Facebook -->
+          <a href="https://facebook.com/DUMMY_PAGE" target="_blank" class="sosmed-btn">
+            <div class="sosmed-icon" style="background:#1877f2;border-radius:8px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            Facebook
+          </a>
+          <!-- Pinterest -->
+          <a href="https://pinterest.com/DUMMY_HANDLE" target="_blank" class="sosmed-btn">
+            <div class="sosmed-icon" style="background:#e60023;border-radius:8px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </div>
+            Pinterest
+          </a>
+          <!-- Google Business -->
+          <a href="https://www.google.com/maps/place/PUTRA+INTERIOR+Terima+pasang+plafon+gypsum+%2Fpartisi+dll/@-6.5331768,106.8140697,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69c3e30e4d8875:0x440b52f6bd2fe015!8m2!3d-6.5331768!4d106.8140697!16s%2Fg%2F11f3_3jllj?entry=ttu&g_ep=EgoyMDI2MDYyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="sosmed-btn">
+            <div class="sosmed-icon" style="background:#fff;border-radius:8px">
+              <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            Google Business
+          </a>
+        </div>
+      </div>
+
+      <!-- Form Inquiry -->
+      <div class="kontak-form-side">
+        <div class="form-title">Kirim Pesan</div>
+        <p class="form-sub">Isi form di bawah, kami akan menghubungi Anda dalam 1×24 jam.</p>
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input type="text" placeholder="Nama Anda" />
+        </div>
+        <div class="form-group">
+          <label>Nomor WhatsApp</label>
+          <input type="tel" placeholder="08xxxxxxxxxx" />
+        </div>
+        <div class="form-group">
+          <label>Kebutuhan</label>
+          <select>
+            <option value="">Pilih layanan...</option>
+            <option>Plafon Gypsum</option>
+            <option>Plafon PVC</option>
+            <option>Partisi Ruangan</option>
+            <option>Pemasangan Instalasi</option>
+            <option>Desain Interior (dengan pemasangan)</option>
+            <option>Desain Interior (tanpa pemasangan)</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Lokasi Proyek</label>
+          <input type="text" placeholder="Kota / Kecamatan" />
+        </div>
+        <div class="form-group">
+          <label>Ceritakan kebutuhan Anda</label>
+          <textarea placeholder="Ukuran ruangan, estimasi budget, target waktu, dll."></textarea>
+        </div>
+        <button class="form-submit" onclick="kirimWA()">Kirim via WhatsApp →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="nav-logo" style="margin-bottom:10px">
+          <div class="logo-pi">π</div>
+          <div class="logo-text">
+            Putra Interior
+            <span>Presisi dalam setiap detail</span>
+          </div>
+        </div>
+        <p class="footer-copy">© 2024 Putra Interior. Jasa Plafon & Interior Jabodetabek.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.classList.toggle('open');
+  }
+
+  // Kirim form ke WhatsApp
+  function kirimWA() {
+    const nama  = document.querySelector('input[placeholder="Nama Anda"]').value || '-';
+    const wa    = document.querySelector('input[placeholder="08xxxxxxxxxx"]').value || '-';
+    const lay   = document.querySelector('select').value || '-';
+    const lok   = document.querySelector('input[placeholder="Kota / Kecamatan"]').value || '-';
+    const pesan = document.querySelector('textarea').value || '-';
+    const msg = encodeURIComponent(
+      `Halo Putra Interior 👋\n\n` +
+      `*Nama:* ${nama}\n` +
+      `*WhatsApp:* ${wa}\n` +
+      `*Kebutuhan:* ${lay}\n` +
+      `*Lokasi:* ${lok}\n` +
+      `*Detail:* ${pesan}`
+    );
+    // GANTI nomor WA di sini:
+    window.open(`https://wa.me/628XXXXXXXXXX?text=${msg}`, '_blank');
+  }
+
+  // Smooth scroll offset untuk navbar fixed
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 72;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
