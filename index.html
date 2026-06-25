@@ -96,17 +96,10 @@
       gap: 12px;
     }
     .logo-pi {
-      width: 38px; height: 38px;
-      border: 1px solid var(--c-gold);
-      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--f-display);
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--c-gold);
-      letter-spacing: -1px;
+      flex-shrink: 0;
     }
     .logo-text {
       font-family: var(--f-display);
@@ -198,6 +191,9 @@
       align-items: center;
       padding: 80px 0;
     }
+    /* video comes first in HTML so shows on mobile, swap order on desktop */
+    .hero-visual { order: 2; }
+    .hero-content { order: 1; }
     .hero-tagline {
       font-size: 11px;
       font-weight: 500;
@@ -836,10 +832,13 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero-visual { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-visual { display: block; margin-bottom: 8px; }
+      .hero-img-wrap { aspect-ratio: 16/9; }
+      .hero-badge { display: none; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-img { aspect-ratio: 4/3; }
+      .about-accent { display: none; }
       .keunggulan-row { grid-template-columns: repeat(2, 1fr); }
       .layanan-grid { grid-template-columns: repeat(2, 1fr); }
       .desain-mandiri { grid-template-columns: 1fr; }
@@ -868,7 +867,15 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <div class="logo-pi">π</div>
+        <div class="logo-pi">
+          <svg width="52" height="48" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+            <text x="60" y="100" text-anchor="middle"
+              font-family="'Cormorant Garamond', Georgia, serif"
+              font-size="100" font-weight="400"
+              fill="#a0622a">Pπ</text>
+            <circle cx="90" cy="28" r="14" fill="#a0622a"/>
+          </svg>
+        </div>
         <div class="logo-text">
           Putra Interior
           <span>Presisi dalam setiap detail</span>
@@ -901,6 +908,15 @@
   <div class="hero-grid"></div>
   <div class="container">
     <div class="hero-inner">
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <video src="video_produk_hero_putra_interior.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="hero-badge">
+          <strong>π</strong>
+          Presisi<br>Terukur
+        </div>
+      </div>
       <div class="hero-content">
         <p class="hero-tagline">Jabodetabek · Est. 2016</p>
         <h1 class="hero-title">
@@ -934,21 +950,6 @@
           </div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-img-wrap">
-          <!--
-            GANTI DENGAN FOTO HERO TERBAIK ANDA:
-            <img src="foto-hero.jpg" alt="Proyek plafon Putra Interior" />
-            ATAU VIDEO:
-            <video src="video1.mp4" autoplay muted loop playsinline></video>
-          -->
-          <img src="testimoni_img__putra_interior_5.jpg" alt="Proyek plafon gypsum Putra Interior" />
-        </div>
-        <div class="hero-badge">
-          <strong>π</strong>
-          Presisi<br>Terukur
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -962,7 +963,7 @@
           GANTI DENGAN FOTO TIM / SUASANA KERJA:
           <img src="foto-tentang.jpg" alt="Tim Putra Interior" />
         -->
-        <img src="testimoni_img__putra_interior_4.jpg" alt="Tim Putra Interior sedang bekerja" />
+        <img src="testimoni_img__putra_interior_5.jpg" alt="Proyek plafon gypsum Putra Interior" />
         <div class="about-accent">π</div>
       </div>
       <div>
@@ -1269,7 +1270,15 @@
     <div class="footer-inner">
       <div>
         <div class="nav-logo" style="margin-bottom:10px">
-          <div class="logo-pi">π</div>
+          <div class="logo-pi">
+            <svg width="52" height="48" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+              <text x="60" y="100" text-anchor="middle"
+                font-family="'Cormorant Garamond', Georgia, serif"
+                font-size="100" font-weight="400"
+                fill="#a0622a">Pπ</text>
+              <circle cx="90" cy="28" r="14" fill="#a0622a"/>
+            </svg>
+          </div>
           <div class="logo-text">
             Putra Interior
             <span>Presisi dalam setiap detail</span>
